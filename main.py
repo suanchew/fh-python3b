@@ -56,8 +56,3 @@ print ("Email: suanschew@gmail.com")
 print ("Course policy example: It is a student’s responsibility to drop himself/herself"
      + " from the class. Simply being absent from all the class activities will result in a"
      + " final grade of F.")
-
-#myDeck = Deck()
-#myDeck.shuffle()
-#myDeck.deal()
-#myDeck.show()
