@@ -6,7 +6,7 @@ class Card:
         self.value = valu
 
     def show(self):
-        print ("{} of {}".format(self.value, self.suit))
+        print ("{} {}".format(self.value, self.suit))
 
 class Deck:
     def __init__(self):
@@ -31,20 +31,19 @@ class Deck:
 #         j = random integer with 0 <= j <= i
 #             exchange a[j] and a[i]
     def shuffle(self):
-        for i in (len(self.cards)-1, 0, -1):
-            for r in random.randint(0, i):
-                self.cards[i], self.cards[r] = self.cards[r], self.cards[r]
+        for i in range(len(self.cards)-1, 0, -1):
+            r = random.randint(0, i)
+            self.cards[i], self.cards[r] = self.cards[r], self.cards[i]
+
+print ("Name: Suan Chew")
+print ("Student ID: 20153703")
+print ("Email: suanschew@gmail.com")
+print ("Course policy example: It is a student’s responsibility to drop himself/herself"
+     + " from the class. Simply being absent from all the class activities will result in a"
+     + " final grade of F.")
+
+myDeck = Deck()
+myDeck.shuffle()
+myDeck.show()
 
 
-def main():
-    
-    print ("Name: Suan Chew")
-    print ("Student ID: 20153703")
-    print ("Email: suanschew@gmail.com")
-    print ("Course policies: " + "this is course policies")
-
-    myDeck = Deck()
-    myDeck.show()
-    myDeck.shuffle()
-    myDeck.show()
-    myDeck.dealCard()
