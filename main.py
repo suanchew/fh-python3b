@@ -24,10 +24,7 @@ class Deck:
             c.show()
 
     def deal(self):
-        cardDealt = self.cards.pop()
-        print ("Card dealt>>> ")
-        cardDealt.show()
-        print ("<<<")
+        return self.cards.pop()
 
     def deckComplete(self):
         selfCards = []
@@ -48,7 +45,6 @@ class Deck:
     def shuffle(self):
         if not self.deckComplete():
             return False
-        print ("deck is complete!!!yay")
         for i in range(len(self.cards)-1, 0, -1):
             r = random.randint(0, i)
             self.cards[i], self.cards[r] = self.cards[r], self.cards[i]
@@ -61,7 +57,7 @@ print ("Course policy example: It is a student’s responsibility to drop himsel
      + " from the class. Simply being absent from all the class activities will result in a"
      + " final grade of F.")
 
-myDeck = Deck()
-myDeck.shuffle()
-myDeck.deal()
-myDeck.show()
+#myDeck = Deck()
+#myDeck.shuffle()
+#myDeck.deal()
+#myDeck.show()
