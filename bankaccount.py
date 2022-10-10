@@ -6,6 +6,9 @@ class BankAccount:
         self.balance = 0
         self.pin = pin
 
+    def show(self):
+        print ("{} {}".format(self.pin, self.balance))
+
     def valid_pin (self, pin):
         if not self.pin == pin:
             return False
@@ -34,7 +37,7 @@ class BankAccount:
         return True
 
     def whole_amounts(self, amount):
-        if not amount.is_integer():
+        if not float(amount).is_integer():
             return False
         return True
 
@@ -58,6 +61,7 @@ class BankAccount:
             return False
         self.set_pin(pin, newpin)
 
+
 class SavingsAccount(BankAccount):
 
     def __init__(self, pin, interestrate): 
@@ -78,4 +82,21 @@ class FeeSavingsAccount(SavingsAccount):
         SavingsAccount.set_balance(self, pin, SavingsAccount.get_balance(self, pin)-self.fee)
 
 if __name__ == '__main__':
-    print ("here we go")
+
+    pin = "123"
+    
+    a = BankAccount(pin)
+    a.show()
+
+    try:
+        # if not a.withdraw(pin, 1000000):
+        #     raise Exception("{} cannot be withdrawn".format(1000000))
+        if not a.deposit(pin, 100.00):
+            raise Exception("{} not whole amount".format(100.00))
+        if not a.withdraw(pin, 0.99):
+            raise Exception("{} cannot be withdrawn".format(0.99))
+    except Exception as e:
+        print(e)
+    
+    a.show()
+        
