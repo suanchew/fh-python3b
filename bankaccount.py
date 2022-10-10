@@ -53,8 +53,6 @@ class BankAccount:
         if not self.whole_amounts(amount):
             return False
         if not amount <= self.get_balance(pin):
-            print (amount)
-            print (current_balance)
             return False
         self.set_balance(pin, self.get_balance(pin)-amount)
         return amount
@@ -73,7 +71,7 @@ class SavingsAccount(BankAccount):
         self.interest_rate = interestrate
 
     def add_interest_to_balance(self, pin):
-        self.set_balance(pin, (1 + self.interest_rate) * self.get_balance(pin))
+        self.set_balance(pin, (1+self.interest_rate)*self.get_balance(pin))
 
 class FeeSavingsAccount(SavingsAccount):
 
