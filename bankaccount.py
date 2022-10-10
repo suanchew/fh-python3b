@@ -77,8 +77,8 @@ class SavingsAccount(BankAccount):
 
 class FeeSavingsAccount(SavingsAccount):
 
-    def __init__(self, pin, fee): 
-        BankAccount.__init__(self, pin)
+    def __init__(self, pin, interestrate, fee): 
+        SavingsAccount.__init__(self, pin, interestrate)
         self.fee = fee
 
     def withdraw(self, pin, amount):
@@ -88,7 +88,6 @@ class FeeSavingsAccount(SavingsAccount):
 if __name__ == '__main__':
 
     pin = "123"
-
 
     # a = BankAccount(pin)
     # a.show()
@@ -107,10 +106,15 @@ if __name__ == '__main__':
     #     print(e)
     # a.show()
 
-    b = SavingsAccount(pin, 0.01)
-    b.show()
-    b.deposit(pin, 100)
-    b.add_interest_to_balance(pin)
-    b.show()
+    # b = SavingsAccount(pin, 0.01)
+    # b.show()
+    # b.deposit(pin, 100)
+    # b.add_interest_to_balance(pin)
+    # b.show()
 
+    c = FeeSavingsAccount(pin, 0.01, 10)
+    c.show()
+    c.deposit(pin, 100)
+    c.withdraw(pin, 1)
+    c.show()
         
