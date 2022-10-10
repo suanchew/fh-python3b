@@ -6,8 +6,8 @@ class BankAccount:
         self.balance = 0
         self.pin = pin
 
-    def show(self):
-        print ("{} {}".format(self.pin, self.balance))
+    # def show(self):
+    #     print ("{} {}".format(self.pin, self.balance))
 
     def valid_pin (self, pin):
         if not self.pin == pin:
@@ -59,10 +59,9 @@ class BankAccount:
 
     def change_pin(self, oldpin, newpin): 
         """Change pin from oldpin to newpin."""
-        if not self.valid_pin(pin):
+        if not self.valid_pin(oldpin):
             return False
         self.set_pin(pin, newpin)
-
 
 class SavingsAccount(BankAccount):
 
