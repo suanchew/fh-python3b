@@ -50,7 +50,11 @@ class BankAccount:
 
     def withdraw(self, pin, amount): 
         """Decrement account balance by amount and return amount withdrawn."""
-        if not self.whole_amounts(amount) or amount > self.get_balance(pin):
+        if not self.whole_amounts(amount):
+            return False
+        if not amount <= self.get_balance(pin):
+            print (amount)
+            print (current_balance)
             return False
         self.set_balance(pin, self.get_balance(pin)-amount)
         return amount
@@ -65,16 +69,16 @@ class BankAccount:
 class SavingsAccount(BankAccount):
 
     def __init__(self, pin, interestrate): 
-        BankAccount.__init__(self, pin, "SavingsAccount")
+        BankAccount.__init__(self, pin)
         self.interest_rate = interestrate
 
     def add_interest_to_balance(self, pin):
-        self.set_balance(pin, self.interest_rate * self.get_balance(pin))
+        self.set_balance(pin, (1 + self.interest_rate) * self.get_balance(pin))
 
 class FeeSavingsAccount(SavingsAccount):
 
     def __init__(self, pin, fee): 
-        BankAccount.__init__(self, pin, "FeeSavingsAccount")
+        BankAccount.__init__(self, pin)
         self.fee = fee
 
     def withdraw(self, pin, amount):
@@ -84,19 +88,29 @@ class FeeSavingsAccount(SavingsAccount):
 if __name__ == '__main__':
 
     pin = "123"
-    
-    a = BankAccount(pin)
-    a.show()
 
-    try:
-        # if not a.withdraw(pin, 1000000):
-        #     raise Exception("{} cannot be withdrawn".format(1000000))
-        if not a.deposit(pin, 100.00):
-            raise Exception("{} not whole amount".format(100.00))
-        if not a.withdraw(pin, 0.99):
-            raise Exception("{} cannot be withdrawn".format(0.99))
-    except Exception as e:
-        print(e)
-    
-    a.show()
+
+    # a = BankAccount(pin)
+    # a.show()
+    # try:
+    #     # if not a.withdraw(pin, 1000000):
+    #     #     raise Exception("{} cannot be withdrawn".format(1000000))
+    #     if not a.deposit(pin, 100):
+    #         raise Exception("{} not whole amount".format(100.00))
+    #     # if not a.withdraw(pin, 0.99):
+    #     #     raise Exception("{} cannot be withdrawn".format(0.99))
+    #     # if not a.withdraw(pin, 0):
+    #     #     raise Exception("{} cannot be withdrawn".format(0))
+    #     if not a.withdraw("321", 0):
+    #         raise Exception("{} wrong pin".format(pin))
+    # except Exception as e:
+    #     print(e)
+    # a.show()
+
+    b = SavingsAccount(pin, 0.01)
+    b.show()
+    b.deposit(pin, 100)
+    b.add_interest_to_balance(pin)
+    b.show()
+
         
