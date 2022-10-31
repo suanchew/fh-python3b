@@ -1,0 +1,133 @@
+
+# # Total Sales
+
+# # Design a program that asks the user to enter a store’s sales for each day of the week. The amounts should be stored in a list. Use a loop to calculate the total sales for the week and display the result.
+
+# salesOfWeek = {'Monday':0, 'Tuesday':0, 'Wednesday':0, 'Thursday':0, 'Friday':0, 'Saturday':0, 'Sunday':0}
+
+# for day in salesOfWeek.keys():
+#     dailySale = float(input("Enter sale for {}: ".format(day)))
+#     print("Entered ${:,.2f}".format(dailySale))
+#     salesOfWeek[day] = dailySale
+# print("Daily sales this week: ")
+# print(salesOfWeek)
+# sumWeekSales = sum(list(salesOfWeek.values()))
+# print("Total sales this week: ${:,.2f}".format(sumWeekSales))
+
+# listSales = []
+# weeklySales = 0
+# for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]:
+#     dailySale = float(input("Enter sale for {}: ".format(day)))
+#     print("Entered ${:,.2f}".format(dailySale))
+#     listSales.append(dailySale)
+# for amount in listSales:
+#     weeklySales += amount
+# print("Total sales this week = ${:,.2f}".format(weeklySales))
+
+
+# Capital Quiz
+
+# Write a program that creates a dictionary containing the U.S. states as keys, and their capitals as values. (Use the Internet to get a list of the states and their capitals.) The program should then randomly quiz the user by displaying the name of a state and asking the user to enter that state’s capital. The program should keep a count of the number of correct and incorrect responses. (As an alternative to the U.S. states, the program can use the names of countries and their capitals.)
+
+import random
+from collections import Counter 
+import unicodedata
+
+statesCapitals={
+    'alabama':'montgomery',
+    'alaska':'juneau',
+    'arizona':'phoenix',
+    'arkansas':'little rock',
+    'california':'sacramento',
+    'colorado':'denver',
+    'connecticut':'hartford',
+    'delaware':'dover',
+    'florida':'tallahassee',
+    'georgia':'atlanta',
+    'hawaii':'honolulu',
+    'idaho':'boise',
+    'illinois':'springfield',
+    'indiana':'indianapolis',
+    'iowa':'des moines',
+    'kansas':'topeka',
+    'kentucky':'frankfort',
+    'louisiana':'baton rouge',
+    'maine':'augusta',
+    'maryland':'annapolis',
+    'massachusetts':'boston',
+    'michigan':'lansing',
+    'minnesota':'st. paul',
+    'mississippi':'jackson',
+    'missouri':'jefferson city',
+    'montana':'helena',
+    'nebraska':'lincoln',
+    'nevada':'carson city',
+    'new hampshire':'concord',
+    'new jersey':'trenton',
+    'new mexico':'santa fe',
+    'new york':'albany',
+    'north carolina':'raleigh',
+    'north dakota':'bismarck',
+    'ohio':'columbus',
+    'oklahoma':'oklahoma city',
+    'oregon':'salem',
+    'pennsylvania':'harrisburg',
+    'rhode island':'providence',
+    'south carolina':'columbia',
+    'south dakota':'pierre',
+    'tennessee':'nashville',
+    'texas':'austin',
+    'utah':'salt lake city',
+    'vermont':'montpelier',
+    'virginia':'richmond',
+    'washington':'olympia',
+    'west virginia':'charleston',
+    'wisconsin':'madison',
+    'wyoming':'cheyenne'
+}
+guesses = Counter({'correct':0, 'incorrect':0})
+
+
+keepGuessing = True
+while keepGuessing:
+    for k in random.sample(statesCapitals.keys(), 1):
+        state = unicodedata.normalize("NFKD", k.casefold())
+
+        capital = unicodedata.normalize("NFKD", statesCapitals[k].casefold())
+        usersGuess = unicodedata.normalize("NFKD", input("What is the capital of {}? ".format(state)).casefold())
+        print("You guessed: {}.".format(usersGuess))
+        if usersGuess == capital:
+            print("That is correct.")
+            guesses['correct'] += 1
+        else:
+            print("That is incorrect.")
+            guesses['incorrect'] += 1
+            print("The capital of {} is {}.".format(state, capital))
+
+    if unicodedata.normalize("NFKD", input("Keep guessing (y/n)? ").casefold()) == 'n':
+        keepGuessing = False
+
+print("You made {} correct, and {} incorrect guesses".format(guesses['correct'], guesses['incorrect']))
+
+
+#unicodedata.normalize("NFKD", text.casefold())
+
+
+
+# > git pull --tags origin main
+# From https://github.com/suanchew/fh-python3b
+#  * branch            main       -> FETCH_HEAD
+# hint: You have divergent branches and need to specify how to reconcile them.
+# hint: You can do so by running one of the following commands sometime before
+# hint: your next pull:
+# hint: 
+# hint:   git config pull.rebase false  # merge
+# hint:   git config pull.rebase true   # rebase
+# hint:   git config pull.ff only       # fast-forward only
+# hint: 
+# hint: You can replace "git config" with "git config --global" to set a default
+# hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+# hint: or --ff-only on the command line to override the configured default per
+# hint: invocation.
+# fatal: Need to specify how to reconcile divergent branches.
+
