@@ -115,6 +115,63 @@ print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) 
 #https://levelup.gitconnected.com/using-the-map-function-in-python-f088fad8788d
 
 
+
+# LIST COMPREHENSION:
+
+# [expression for item in list]
+# [letter for letter in 'human']
+
+# For loop:
+# h_letters = []
+# for letter in 'human':
+#     h_letters.append(letter)
+# print(h_letters)
+# ['h', 'u', 'm', 'a', 'n']
+
+# List comprehension:
+# h_letters = [ letter for letter in 'human' ]
+# print( h_letters)
+# ['h', 'u', 'm', 'a', 'n']
+
+# Lambda:
+# letters = list(map(lambda x: x, 'human'))
+# print(letters)
+# ['h','u','m','a','n']
+
+# Conditionals:
+# number_list = [x for x in range(20) if x % 2 == 0]
+# print(number_list)
+# [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+# Nested if:
+# num_list = [y for y in range(100) if y % 2 == 0 if y % 5 == 0]
+# print(num_list)
+# [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+# If else:
+# obj = ["Even" if i%2==0 else "Odd" for i in range(10)]
+# print(obj)
+# ['Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd']
+
+# Nested loops:
+# transposed = []
+# matrix = [[1, 2, 3, 4], [4, 5, 6, 8]]
+# for i in range(len(matrix[0])):
+#     transposed_row = []
+#     for row in matrix:
+#         transposed_row.append(row[i])
+#     transposed.append(transposed_row)
+# print(transposed)
+# [[1, 4], [2, 5], [3, 6], [4, 8]]
+
+# matrix = [[1, 2], [3,4], [5,6], [7,8]]
+# transpose = [[row[i] for row in matrix] for i in range(2)]
+# print (transpose)
+# [[1, 3, 5, 7], [2, 4, 6, 8]]
+#https://www.programiz.com/python-programming/list-comprehension
+
+
+
 # LIST COMPREHENSION - GENERATOR VS ITERATOR:
 
 # List comprehensions must be enclosed by square brackets [...]:
@@ -127,3 +184,5 @@ print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) 
 #     h = next((x for x in results if x.get("ID")=="91149"), None)
 #https://stackoverflow.com/questions/21790459/bad-syntax-in-python-list-comprehension
 
+
+# ITERATING LISTS:

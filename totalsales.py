@@ -110,3 +110,25 @@ while keepGuessing:
 
 print("You made {} correct, and {} incorrect guesses".format(guesses['correct'], guesses['incorrect']))
 
+
+
+
+
+# REGULAR EXPRESSIONS:
+
+# ([\w ]+)
+# Replace with
+# '$&'
+
+# \n
+# Replace with
+# ,\n
+
+# $1 = what was matched by the first group. $& = what was matched by the entire regex.
+# $& is a backreference to the whole match, while $1 is a backreference to the submatch captured with capturing group 1.
+
+# $&          Inserts the matched substring.
+# $n or $nn   Where n or nn are decimal digits, inserts the nth parenthesized submatch string, provided the first argument was a RegExp object.
+
+# https://www.regular-expressions.info/replacebackref.html
+
