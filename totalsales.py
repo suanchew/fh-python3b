@@ -114,7 +114,7 @@ print("You made {} correct, and {} incorrect guesses".format(guesses['correct'],
 
 
 
-# REGULAR EXPRESSIONS:
+# REGULAR EXPRESSIONS regexr.com:
 
 # ([\w ]+)
 # Replace with
@@ -130,6 +130,10 @@ print("You made {} correct, and {} incorrect guesses".format(guesses['correct'],
 # $&          Inserts the matched substring.
 # $n or $nn   Where n or nn are decimal digits, inserts the nth parenthesized submatch string, provided the first argument was a RegExp object.
 # https://www.regular-expressions.info/replacebackref.html
+
+# https://regexr.com
+# https://regex101.com
+# https://pythex.org
 
 # alabama:montgomery
 # alaska:juneau
@@ -181,3 +185,5 @@ print("You made {} correct, and {} incorrect guesses".format(guesses['correct'],
 # west virginia:charleston
 # wisconsin:madison
 # wyoming:cheyenne
+
+
