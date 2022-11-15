@@ -126,32 +126,32 @@ print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) 
 # for letter in 'human':
 #     h_letters.append(letter)
 # print(h_letters)
-# ['h', 'u', 'm', 'a', 'n']
+# #['h', 'u', 'm', 'a', 'n']
 
 # List comprehension:
 # h_letters = [ letter for letter in 'human' ]
 # print( h_letters)
-# ['h', 'u', 'm', 'a', 'n']
+# #['h', 'u', 'm', 'a', 'n']
 
 # Lambda:
 # letters = list(map(lambda x: x, 'human'))
 # print(letters)
-# ['h','u','m','a','n']
+# #['h','u','m','a','n']
 
 # Conditionals:
 # number_list = [x for x in range(20) if x % 2 == 0]
 # print(number_list)
-# [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+# #[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 # Nested if:
 # num_list = [y for y in range(100) if y % 2 == 0 if y % 5 == 0]
 # print(num_list)
-# [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+# #[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 
 # If else:
 # obj = ["Even" if i%2==0 else "Odd" for i in range(10)]
 # print(obj)
-# ['Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd']
+# #['Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd']
 
 # Nested loops:
 # transposed = []
@@ -162,12 +162,12 @@ print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) 
 #         transposed_row.append(row[i])
 #     transposed.append(transposed_row)
 # print(transposed)
-# [[1, 4], [2, 5], [3, 6], [4, 8]]
+# #[[1, 4], [2, 5], [3, 6], [4, 8]]
 
 # matrix = [[1, 2], [3,4], [5,6], [7,8]]
 # transpose = [[row[i] for row in matrix] for i in range(2)]
 # print (transpose)
-# [[1, 3, 5, 7], [2, 4, 6, 8]]
+# #[[1, 3, 5, 7], [2, 4, 6, 8]]
 #https://www.programiz.com/python-programming/list-comprehension
 
 
@@ -185,4 +185,107 @@ print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) 
 #https://stackoverflow.com/questions/21790459/bad-syntax-in-python-list-comprehension
 
 
-# ITERATING LISTS:
+
+# ENUMERATION:
+
+# l = [1, 2, 3]
+# for index, item in enumerate(l): 
+#     print (index, ":", item)
+# #0 : 1
+# #1 : 2
+# #2 : 3
+
+# d = {'first':1, 'second':2, 'third':3}
+# for index, (k, v) in enumerate(d.items()):
+#     print (index, ":", k, v) 
+# #0 : first 1
+# #1 : second 2
+# #2 : third 3
+
+
+
+# NUMPY nditer():
+
+# numpy.nditer(op, flags=None, op_flags=None, op_dtypes=None, order='K', casting='safe', op_axes=None, itershape=None, buffersize=0):
+# numpy.arange([start, ]stop, [step, ]dtype=None, *, like=None)
+# numpy.ndarray(shape, dtype=float, buffer=None, offset=0, strides=None, order=None)
+
+# for counter_variable in np.nditer(array):
+#     print(counter_variable) 
+
+# import numpy as np
+# arr = np.arange(3)
+# print (type(arr))
+# print (arr.shape)
+# for x in np.nditer(arr):
+#     print(x) 
+# #<class 'numpy.ndarray'>
+# #(3,)
+# #0
+# #1
+# #2
+
+# 3-D array:
+# import numpy as np
+# arr = np.array([[[1, 2], [3, 4]], [[5, 6]]])
+# for x in np.nditer(arr):
+#     print(x)
+# #1
+# #2
+# #3
+# #4
+# #5
+# #6
+
+# Iterate as string:
+# import numpy as np
+# arr = np.array([1, 2, 3])
+# for x in np.nditer(arr, flags=['buffered'], op_dtypes=['S']):
+#     print(x)
+# #b'1'
+# #b'2'
+# #b'3'
+
+# Iterate with different step size:
+# import numpy as np
+# arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+# for x in np.nditer(arr[:, ::2]):
+#   print(x)
+# #1
+# #3
+# #5
+# #7
+# https://numpy.org/doc/stable/reference/generated/numpy.nditer.html
+# https://numpy.org/doc/stable/reference/generated/numpy.arange.html
+# https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html
+# https://numpy.org/doc/stable/reference/arrays.nditer.html#arrays-nditer
+
+
+
+# NUMPY ndenumberate():
+
+# numpy.ndenumerate(arr)
+
+# import numpy as np
+# arr = np.array([1, 2, 3])
+# for idx, x in np.ndenumerate(arr):
+#     print(idx, x)
+# #(0,) 1
+# #(1,) 2
+# #(2,) 3
+
+# import numpy as np
+# arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+# for idx, x in np.ndenumerate(arr):
+#     print(idx, x)
+# #(0, 0) 1
+# #(0, 1) 2
+# #(0, 2) 3
+# #(0, 3) 4
+# #(1, 0) 5
+# #(1, 1) 6
+# #(1, 2) 7
+# #(1, 3) 8
+# https://numpy.org/doc/stable/reference/generated/numpy.ndenumerate.html
+
+
