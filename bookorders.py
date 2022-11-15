@@ -55,15 +55,25 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 
 # Your Python program must use lambda and map.
 
-from itertools import starmap
+# from itertools import starmap
+
+# spells = ["protego", "accio", "expecto patronum", "legilimens"]
+# occurrence = [1, 0, 2, 1]
+
+# def modifySpell(spell):
+#     return spell + "!!!"
+
+# print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) )
 
 spells = ["protego", "accio", "expecto patronum", "legilimens"]
 occurrence = [1, 0, 2, 1]
 
-def modifySpell(spell):
-    return spell + "!!!"
+print( list(map(lambda n, m: (n + "!!!") * m, spells, occurrence)) ) 
 
-print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) )
+
+
+
+
 
 
 
