@@ -31,14 +31,6 @@ print("Orders: ", [(order[2], order[3]) for order in orders])
 print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(row[3]+10)) if row[2]*row[3] < 100 else (row[0], row[2]*row[3]), orders )))
 
 
-#letters = list(map(lambda x: x, 'human'))
-#print(letters)
-
-#h_letters = [ letter for letter in 'human' ]
-#print( h_letters)
-
-#number_list = [ x for x in range(20) if x % 2 == 0]
-#print(number_list)
 
 
 
@@ -55,6 +47,25 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 
 # Your Python program must use lambda and map.
 
+spells = ["protego", "accio", "expecto patronum", "legilimens"]
+occurrence = [1, 0, 2, 1]
+print( list(map(lambda n, m: (n + "!!!") * m, spells, occurrence)) ) 
+
+# import timeit
+# code_to_test = """
+# spells = ["protego", "accio", "expecto patronum", "legilimens"]
+# occurrence = [1, 0, 2, 1]
+# print( list(map(lambda n, m: (n + "!!!") * m, spells, occurrence)) ) 
+# """
+# elapsed_time = timeit.timeit(code_to_test, number=1)
+# print("timeit using map: {0:.2f} ns".format(elapsed_time*1000000000))
+
+
+
+# USING itertools:
+# https://docs.python.org/3/library/itertools.html
+# https://docs.python.org/3/library/functional.html
+
 # from itertools import starmap
 
 # spells = ["protego", "accio", "expecto patronum", "legilimens"]
@@ -64,6 +75,22 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 #     return spell + "!!!"
 
 # print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) )
+
+# code_to_test = """
+# from itertools import starmap
+# spells = ["protego", "accio", "expecto patronum", "legilimens"]
+# occurrence = [1, 0, 2, 1]
+
+# def modifySpell(spell):
+#     return spell + "!!!"
+
+# print( list(starmap(lambda n, m: modifySpell(n) * m, zip(spells, occurrence)) ) )
+# """
+# elapsed_time = timeit.timeit(code_to_test, number=1)
+# print("time with starmap: {0:.2f} ns".format(elapsed_time * 1000000000))
+
+
+
 
 
 
@@ -117,6 +144,8 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 #     print(type(elements_tuple))
 #     #<class 'tuple'>
 #https://levelup.gitconnected.com/using-the-map-function-in-python-f088fad8788d
+
+
 
 
 
@@ -176,6 +205,8 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 
 
 
+
+
 # LIST COMPREHENSION - GENERATOR VS ITERATOR:
 
 # List comprehensions must be enclosed by square brackets [...]:
@@ -187,6 +218,8 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 # Unlike list comprehension (which does it all at once), this solution will yield the items one at a time. It will stop once it finds an item that meets the condition. However, it will also raise a StopIteration error if it cannot find the item. To avoid this, give next a default value to return:
 #     h = next((x for x in results if x.get("ID")=="91149"), None)
 #https://stackoverflow.com/questions/21790459/bad-syntax-in-python-list-comprehension
+
+
 
 
 
@@ -205,6 +238,8 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 # #0 : first 1
 # #1 : second 2
 # #2 : third 3
+
+
 
 
 
@@ -266,6 +301,8 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 
 
 
+
+
 # NUMPY ndenumberate():
 
 # numpy.ndenumerate(arr)
@@ -291,5 +328,7 @@ print ("Orders, plus $10 if sold<$100: ", list(map(lambda row: (row[0], row[2]*(
 # #(1, 2) 7
 # #(1, 3) 8
 # https://numpy.org/doc/stable/reference/generated/numpy.ndenumerate.html
+
+
 
 
