@@ -129,6 +129,55 @@ print("You made {} correct, and {} incorrect guesses".format(guesses['correct'],
 
 # $&          Inserts the matched substring.
 # $n or $nn   Where n or nn are decimal digits, inserts the nth parenthesized submatch string, provided the first argument was a RegExp object.
-
 # https://www.regular-expressions.info/replacebackref.html
 
+# alabama:montgomery
+# alaska:juneau
+# arizona:phoenix
+# arkansas:little rock
+# california:sacramento
+# colorado:denver
+# connecticut:hartford
+# delaware:dover
+# florida:tallahassee
+# georgia:atlanta
+# hawaii:honolulu
+# idaho:boise
+# illinois:springfield
+# indiana:indianapolis
+# iowa:des moines
+# kansas:topeka
+# kentucky:frankfort
+# louisiana:baton rouge
+# maine:augusta
+# maryland:annapolis
+# massachusetts:boston
+# michigan:lansing
+# minnesota:st. paul
+# mississippi:jackson
+# missouri:jefferson city
+# montana:helena
+# nebraska:lincoln
+# nevada:carson city
+# new hampshire:concord
+# new jersey:trenton
+# new mexico:santa fe
+# new york:albany
+# north carolina:raleigh
+# north dakota:bismarck
+# ohio:columbus
+# oklahoma:oklahoma city
+# oregon:salem
+# pennsylvania:harrisburg
+# rhode island:providence
+# south carolina:columbia
+# south dakota:pierre
+# tennessee:nashville
+# texas:austin
+# utah:salt lake city
+# vermont:montpelier
+# virginia:richmond
+# washington:olympia
+# west virginia:charleston
+# wisconsin:madison
+# wyoming:cheyenne
