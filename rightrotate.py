@@ -12,25 +12,28 @@
 # rotate 2 steps to the right: [6,7,1,2,3,4,5]
 # rotate 3 steps to the right: [5,6,7,1,2,3,4]
 
+print ("-----Challenge 1-----")
 import numpy as np
 import unicodedata
 
 inArray = np.array([1,2,3,4,5,6,7])
+print ("Array to rotate: {}".format(inArray))
+if len(inArray) > 0:
+    keepGoing = True
+    while keepGoing:
+        userInput = unicodedata.normalize("NFKD", input("No of steps to right rotate? 1-{} or e(xit): ".format(len(inArray))).casefold())
 
-keepGoing = True
-while keepGoing:
-    userInput = unicodedata.normalize("NFKD", input("No of steps to right rotate? 1-{} or e(xit)".format(len(inArray))).casefold())
+        if userInput in ["", "e"]:
+            break
 
-    if userInput in ["", "e"]:
-        break
+        k = int(userInput) % len(inArray)
+        if not k in range(0,len(inArray)+1):
+            break
 
-    k = int(userInput)
-    if not k in range(0,len(inArray)+1):
-        break
+        resultArray = np.concatenate((inArray[-k:], inArray[:-k]),)
+        print ("Rotated array: {}".format(resultArray))
+        resultArray = []
 
-    resultArray = np.concatenate((inArray[-k:], inArray[:-k]),)
-    print (resultArray)
-    resultArray = []
 
 
 # Challenge 2
@@ -44,6 +47,7 @@ while keepGoing:
 # https://leetcode.com/problems/peak-index-in-a-mountain-array/
 # http://courses.csail.mit.edu/6.006/spring11/lectures/lec02.pdf
 
+print ("-----Challenge 2-----")
 # Recursive function to find the peak element in a list
 def findPeakIndex(items, left=None, right=None):
  
@@ -52,7 +56,6 @@ def findPeakIndex(items, left=None, right=None):
  
     # find the middle element. To avoid overflow, use mid = left + (right-left)//2
     mid = left + (right-left)//2
-    print (mid)
 
     # peak index is found if the middle element is greater than its neighbors
     if ((mid == 0 or items[mid-1] <= items[mid]) and
@@ -69,9 +72,10 @@ def findPeakIndex(items, left=None, right=None):
     return findPeakIndex(items, mid+1, right)
  
 items = [1,2, 3, 80, 90, 100, 20, 50, 60]
+print ("Mountain array: {}".format(items))
 if len(items) > 0:
     index = findPeakIndex(items)
-print('The peak index is', index)
+print("The peak index: ", index)
 
 
 
