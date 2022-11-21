@@ -19,19 +19,18 @@ inArray = np.array([1,2,3,4,5,6,7])
 
 keepGoing = True
 while keepGoing:
-    userInput = unicodedata.normalize("NFKD", input("No of steps to right rotate? (1-{}) ".format(len(inArray))).casefold()) 
-    k = int(userInput)
+    userInput = unicodedata.normalize("NFKD", input("No of steps to right rotate? 1-{} or e(xit)".format(len(inArray))).casefold())
 
-    if userInput in ["", "n"]:
-        keepGoing = False
-    if not k in range(0,8):
-        keepGoing = False
+    if userInput in ["", "e"]:
+        break
+
+    k = int(userInput)
+    if not k in range(0,len(inArray)+1):
+        break
 
     resultArray = np.concatenate((inArray[-k:], inArray[:-k]),)
     print (resultArray)
-
-
-
+    resultArray = []
 
 
 # Challenge 2
@@ -45,19 +44,34 @@ while keepGoing:
 # https://leetcode.com/problems/peak-index-in-a-mountain-array/
 # http://courses.csail.mit.edu/6.006/spring11/lectures/lec02.pdf
 
-
-
-
-
-
-
-#if __name__ == '__main__':
+# Recursive function to find the peak element in a list
+def findPeakIndex(items, left=None, right=None):
  
+    if left is None and right is None:
+        left, right = 0, len(items) - 1
+ 
+    # find the middle element. To avoid overflow, use mid = left + (right-left)//2
+    mid = left + (right-left)//2
+    print (mid)
 
-
-
-
-
+    # peak index is found if the middle element is greater than its neighbors
+    if ((mid == 0 or items[mid-1] <= items[mid]) and
+            (mid == len(items)-1 or items[mid+1] <= items[mid])):
+        return mid
+ 
+    # If the left neighbor of `mid` is greater than the middle element,
+    # find the peak recursively in the left sublist
+    if mid - 1 >= 0 and items[mid-1] > items[mid]:
+        return findPeakIndex(items, left, mid-1)
+ 
+    # If the right neighbor of `mid` is greater than the middle element,
+    # find the peak recursively in the right sublist
+    return findPeakIndex(items, mid+1, right)
+ 
+items = [1,2, 3, 80, 90, 100, 20, 50, 60]
+if len(items) > 0:
+    index = findPeakIndex(items)
+print('The peak index is', index)
 
 
 
