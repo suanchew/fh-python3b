@@ -1,5 +1,5 @@
-
-
+# pyenv versions
+# pip install numpy
 
 # Challenge 1
 
@@ -30,6 +30,27 @@ while keepGoing:
     resultArray = np.concatenate((inArray[-k:], inArray[:-k]),)
     print (resultArray)
 
+
+
+
+
+# Challenge 2
+
+# Given an integer array arr that is guaranteed to have a peak value, return any i such that arr[0] < arr[1] < ... arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1]. For examples,
+
+# arr = [0,1,0] returns 1
+# arr = [3,4,5,1] returns 2
+# arr = [24,69,100,99,79,78,67,36,26,19] returns 2
+
+# https://leetcode.com/problems/peak-index-in-a-mountain-array/
+# http://courses.csail.mit.edu/6.006/spring11/lectures/lec02.pdf
+
+
+
+
+
+
+
 #if __name__ == '__main__':
  
 
@@ -43,7 +64,12 @@ while keepGoing:
 
 
 
+
+
+
+
 # PYTHON SLICING:
+# https://stackoverflow.com/questions/509211/understanding-slicing
 
 # a[start:stop]  # items start through stop-1
 # a[start:]      # items start through the rest of the array
@@ -89,5 +115,7 @@ while keepGoing:
 # Slice objects also behave slightly differently depending on the number of arguments, similarly to range(), i.e. both slice(stop) and slice(start, stop[, step]) are supported. To skip specifying a given argument, one might use None, so that e.g. a[start:] is equivalent to a[slice(start, None)] or a[::-1] is equivalent to a[slice(None, None, -1)].
 
 # While the :-based notation is very helpful for simple slicing, the explicit use of slice() objects simplifies the programmatic generation of slicing.
+
+
 
 
