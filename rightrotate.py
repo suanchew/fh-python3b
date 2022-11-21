@@ -86,6 +86,14 @@ print("The peak index: ", index)
 
 
 
+# exit(0) exit(1):
+# Any non-zero value is considered “abnormal termination” by shells. Most systems require it to be in the range 0–127. 
+# https://docs.python.org/3/library/sys.html#sys.exit
+
+
+
+
+
 # PYTHON SLICING:
 # https://stackoverflow.com/questions/509211/understanding-slicing
 
