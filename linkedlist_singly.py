@@ -48,13 +48,6 @@ class LinkedList:
         for value in values:
             self.add_node(value)
         return self.tail
-            
-    # def add_node_as_head(self, value):
-    #     if self.head is None:
-    #         self.tail = self.head = Node(value)
-    #     else:
-    #         self.head = Node(value, self.head)
-    #     return self.head
 
     def delete_node(self, value):
         current = self.head
@@ -90,25 +83,24 @@ class LinkedList:
                     count += 1
                     current = current.next
 
+# if __name__ == '__main__':
 
-if __name__ == '__main__':
+#     # Example of singly Linked List with insert and print methods
+#     ll = LinkedList()
+#     ll.add_node(1)
+#     ll.add_node(2)
+#     ll.add_node(3)
+#     print (f"Adding nodes 1 to 3: {ll}")
+#     ll.add_multiple_nodes([5, 5, 6, 7])
+#     print (f"Adding list of nodes [5, 5, 6, 7]: {ll}")
+#     ll.delete_node(5)
+#     print (f"Delete node 5: {ll}")
+#     ll.insert_node(Node(4), 3)
+#     print (f"Insert node 4: {ll}")
+#     ll.insert_node(Node(8), 7)
+#     print (f"Insert node 8: {ll}")
+#     ll.insert_node(Node(0), 0)
+#     print (f"Insert node 0: {ll}")
 
-    # Example of singly Linked List with insert and print methods
-    ll = LinkedList()
-    ll.add_node(1)
-    ll.add_node(2)
-    ll.add_node(3)
-    print (f"Adding nodes 1 to 3: {ll}")
-    ll.add_multiple_nodes([5, 5, 6, 7])
-    print (f"Adding list of nodes [5, 5, 6, 7]: {ll}")
-    ll.delete_node(5)
-    print (f"Delete node 5: {ll}")
-    ll.insert_node(Node(4), 3)
-    print (f"Insert node 4: {ll}")
-    ll.insert_node(Node(8), 7)
-    print (f"Insert node 8: {ll}")
-    ll.insert_node(Node(0), 0)
-    print (f"Insert node 0: {ll}")
-
-    print (f"Here is my linked list: {ll}")
+#     print (f"Here is my linked list: {ll}")
 
